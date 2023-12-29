@@ -10,6 +10,7 @@ class ContributeForm extends Component {
     errorMessage: "",
     loading: false
   };
+  
 
   onSubmit = async event => {
     event.preventDefault();

@@ -1,6 +1,6 @@
 import {Web3} from "web3";
 
-const SEPOLIA_INFURA_URL = 'https://sepolia.infura.io/v3/8ee09ed48efc475e8953b95c3feaf1f7'
+const SEPOLIA_INFURA_URL = "https://sepolia.infura.io/v3/8ee09ed48efc475e8953b95c3feaf1f7"
 let web3;
  
 if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
