@@ -20,11 +20,10 @@ class ContributeForm extends Component {
     this.setState({ loading: true, errorMessage: "" });
 
     try {
-      console.log("onSubmit called");
       const accounts = await web3.eth.getAccounts();
       await campaign.methods.contribute().send({
         from: accounts[0],
-        value: web3.utils.toWei(this.state.value, "ether")
+        value: web3.utils.toWei(this.state.value, "ether"),
       });
       Router.replaceRoute(`/campaigns/${this.props.address}`);
     } catch (error) {
@@ -47,7 +46,7 @@ class ContributeForm extends Component {
           />
         </Form.Field>
         <Message error hader="Oops" content={this.state.errorMessage} />
-        <Button type="submit" loading={this.state.loading} primary>
+        <Button loading={this.state.loading} primary>
           Contribute!
         </Button>
       </Form>

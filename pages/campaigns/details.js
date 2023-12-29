@@ -13,7 +13,7 @@ class CampaignDetails extends Component {
     const summary = await campaign.methods.getSummary().call();
 
     return {
-      address: props.query.addres,
+      address: props.query.address,
       minimumContribution: summary[0],
       balance: summary[1],
       requestsCount: summary[2],
