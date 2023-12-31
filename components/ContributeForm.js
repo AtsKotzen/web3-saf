@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Button, Message } from "semantic-ui-react";
+import { Form, Input, Message, Button } from "semantic-ui-react";
 import Campaign from "../ethereum/campaign";
 import web3 from "../ethereum/web3";
 import { Router } from "../routes";
@@ -8,11 +8,10 @@ class ContributeForm extends Component {
   state = {
     value: "",
     errorMessage: "",
-    loading: false
+    loading: false,
   };
-  
 
-  onSubmit = async event => {
+  onSubmit = async (event) => {
     event.preventDefault();
 
     const campaign = Campaign(this.props.address);
@@ -26,12 +25,11 @@ class ContributeForm extends Component {
         value: web3.utils.toWei(this.state.value, "ether"),
       });
       Router.replaceRoute(`/campaigns/${this.props.address}`);
-    } catch (error) {
-      this.setState({ errorMessage: error.message });
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
     }
-
     this.setState({ loading: false, value: "" });
-  }
+  };
 
   render() {
     return (
@@ -40,18 +38,18 @@ class ContributeForm extends Component {
           <label>Amount to Contribute</label>
           <Input
             value={this.state.value}
-            onChange={event => this.setState({ value: event.target.value })}
+            onChange={(event) => this.setState({ value: event.target.value })}
             label="ether"
             labelPosition="right"
           />
         </Form.Field>
-        <Message error hader="Oops" content={this.state.errorMessage} />
-        <Button loading={this.state.loading} primary>
+        <Message error header="Oops!" content={this.state.errorMessage} />
+        <Button primary loading={this.state.loading}>
           Contribute!
         </Button>
       </Form>
-    )
+    );
   }
 }
 
-export default ContributeForm
+export default ContributeForm;

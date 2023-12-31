@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Input, Message } from "semantic-ui-react";
+import { Form, Button, Message, Input } from "semantic-ui-react";
 import Campaign from "../../../ethereum/campaign";
 import web3 from "../../../ethereum/web3";
 import { Link, Router } from "../../../routes";
@@ -11,15 +11,16 @@ class RequestNew extends Component {
     description: "",
     recipient: "",
     loading: false,
-    errorMessage: ""
+    errorMessage: "",
   };
 
   static async getInitialProps(props) {
     const { address } = props.query;
+
     return { address };
   }
 
-  onSubmit = async event => {
+  onSubmit = async (event) => {
     event.preventDefault();
 
     const campaign = Campaign(this.props.address);
@@ -30,13 +31,11 @@ class RequestNew extends Component {
     try {
       const accounts = await web3.eth.getAccounts();
       await campaign.methods
-      .createRequest(description, web3.utils.toWei(value, "ether"), recipient)
-      .send({ from: accounts[0] });
-      
+        .createRequest(description, web3.utils.toWei(value, "ether"), recipient)
+        .send({ from: accounts[0] });
       Router.pushRoute(`/campaigns/${this.props.address}/requests`);
-
-    } catch (error) {
-      this.setState({ errorMessage: error.message })
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
     }
     this.setState({ loading: false });
   };
@@ -48,7 +47,7 @@ class RequestNew extends Component {
           <a>Back</a>
         </Link>
         <h3>Create a Request</h3>
-        <Form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
             <label>Description</label>
             <Input
@@ -75,7 +74,9 @@ class RequestNew extends Component {
             />
           </Form.Field>
           <Message error header="Oops!" content={this.state.errorMessage} />
-          <Button primary loading={this.state.loading}>Create!</Button>
+          <Button primary loading={this.state.loading}>
+            Create!
+          </Button>
         </Form>
       </Layout>
     );
