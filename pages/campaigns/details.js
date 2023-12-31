@@ -41,9 +41,9 @@ class CampaignDetails extends Component {
       },
       {
         header: minimumContribution,
-        meta: "Minimum Contribution (wei)",
+        meta: "Minimum Contribution (ETH)",
         description:
-          "You must contribute at least this much wei to become an approver",
+          "You must contribute at least this much ETH to become an approver",
       },
       {
         header: resquestsCount,
