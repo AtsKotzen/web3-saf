@@ -38,7 +38,7 @@ class RequestRow extends Component {
         <Cell>{web3.utils.fromWei(request.value, "ether")}</Cell>
         <Cell>{request.recipient}</Cell>
         <Cell>
-          {request.approvalCount}/{approversCount}
+          {parseInt(request.approvalCount)} / {parseInt(approversCount)}
         </Cell>
         <Cell>
           {request.complete ? null : (
