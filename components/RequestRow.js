@@ -25,7 +25,8 @@ class RequestRow extends Component {
   render() {
     const { Row, Cell } = Table;
     const { id, request, approversCount } = this.props;
-    const readyToFinalize = request.approvalCount > approversCount / 2;
+    const readyToFinalize = parseInt(request.approvalCount) > parseInt(approversCount) / 2;
+
 
     return (
       <Row
