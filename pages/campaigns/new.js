@@ -9,6 +9,7 @@ class CampaignNew extends Component {
   state = {
     minimumContribution: "",
     name: "",
+    managerName: "",
     errorMessage: "",
     loading: false,
   };
@@ -21,8 +22,9 @@ class CampaignNew extends Component {
       const accounts = await web3.eth.getAccounts();
       const minimumAmount = parseFloat(this.state.minimumContribution)
       const name = this.state.name;
+      const managerName = this.state.managerName;
       await factory.methods
-        .createCampaign(web3.utils.toWei(minimumAmount , "ether"), name)
+        .createCampaign(web3.utils.toWei(minimumAmount , "ether"), name, managerName)
         .send({
           from: accounts[0],
         });
@@ -40,12 +42,22 @@ class CampaignNew extends Component {
         <h3>Criar Projeto</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
-            <label>Nome</label>
+            <label>Nome do Projeto</label>
             <Input
               placeholder="Digite o nome do Projeto"
               value={this.state.name}
               onChange={(event) =>
                 this.setState({ name: event.target.value })
+              }
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Nome do Responsável</label>
+            <Input
+              placeholder="Digite o seu nome"
+              value={this.state.managerName}
+              onChange={(event) =>
+                this.setState({ managerName: event.target.value })
               }
             />
           </Form.Field>

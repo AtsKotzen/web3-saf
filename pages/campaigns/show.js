@@ -19,7 +19,8 @@ class CampaignShow extends Component {
       requestsCount: summary[2],
       approversCount: summary[3],
       manager: summary[4],
-      campaignName: summary[5]
+      campaignName: summary[5],
+      managerName: summary[6]
     };
   }
 
@@ -29,15 +30,15 @@ class CampaignShow extends Component {
       manager,
       minimumContribution,
       requestsCount,
-      approversCount,          
+      approversCount,
+      managerName          
       } = this.props;
 
     const items = [      
       {
-        header: "Responsável",
-        meta: manager,
-        description:
-          "O gestor que criou esse projeto é o único que pode liberar o recebimento dos fundos",
+        header: managerName,
+        meta: "Responsável",
+        description: "Endereço: " + manager,
         style: { overflowWrap: "break-word" },
       },
       {
