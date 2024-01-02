@@ -37,13 +37,12 @@ class CampaignNew extends Component {
   render() {
     return (
       <Layout>
-        <h3>Create a Campaign</h3>
+        <h3>Criar Projeto</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
-            <label>Name</label>
+            <label>Nome</label>
             <Input
-              // label="Name"
-              // labelPosition="left"
+              placeholder="Digite o nome do Projeto"
               value={this.state.name}
               onChange={(event) =>
                 this.setState({ name: event.target.value })
@@ -51,10 +50,11 @@ class CampaignNew extends Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Minimum Contribution</label>
+            <label>Contribuição mínima</label>
             <Input
               label="ETH"
               labelPosition="right"
+              placeholder="Digite o valor mínimo de contribuição(ETH)"
               value={this.state.minimumContribution}
               onChange={(event) =>
                 this.setState({ minimumContribution: event.target.value })
@@ -63,7 +63,7 @@ class CampaignNew extends Component {
           </Form.Field>
           <Message error header="Oops!" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>
-            Create!
+            Salvar
           </Button>
         </Form>
       </Layout>

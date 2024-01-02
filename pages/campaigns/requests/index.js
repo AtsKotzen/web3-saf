@@ -54,17 +54,17 @@ class RequestIndex extends Component {
           <Header>
             <Row>
               <HeaderCell>ID</HeaderCell>
-              <HeaderCell>Description</HeaderCell>
-              <HeaderCell>Amount</HeaderCell>
-              <HeaderCell>Recipient</HeaderCell>
-              <HeaderCell>Approval Count</HeaderCell>
-              <HeaderCell>Approve</HeaderCell>
-              <HeaderCell>Finalize</HeaderCell>
+              <HeaderCell>Descrição</HeaderCell>
+              <HeaderCell>Preço</HeaderCell>
+              <HeaderCell>Recebedor</HeaderCell>
+              <HeaderCell>Aprovações</HeaderCell>
+              <HeaderCell>Aprovar</HeaderCell>
+              <HeaderCell>Finalizar</HeaderCell>
             </Row>
           </Header>
           <Body>{this.renderRows()}</Body>
         </Table>
-        <div>Found {this.props.requestCount} requests.</div>
+        {/* <div>{this.props.requestCount} demandas.</div> */}
       </Layout>
     );
   }

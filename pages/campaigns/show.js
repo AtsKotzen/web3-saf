@@ -29,41 +29,40 @@ class CampaignShow extends Component {
       manager,
       minimumContribution,
       requestsCount,
-      approversCount,
-      campaignName,      
+      approversCount,          
       } = this.props;
 
     const items = [      
       {
-        header: "Manager address",
+        header: "Responsável",
         meta: manager,
         description:
-          "The manager created this campaign and can create requests to withdraw money",
+          "O gestor que criou esse projeto é o único que pode liberar o recebimento dos fundos",
         style: { overflowWrap: "break-word" },
       },
       {
         header: web3.utils.fromWei(minimumContribution, "ether"),
-        meta: "Minimum Contribution (ETH)",
+        meta: "Valor mínimo (ETH)",
         description:
-          "You must contribute at least this much wei to become an approver",
+          "Valor mínimo de contribuição para se tornar um aprovador.",
       },
       {
         header: parseInt(requestsCount),
-        meta: "Number of Requests",
+        meta: "Demandas",
         description:
-          "A request tries to withdraw money from the contract. Requests must be approved by approvers",
+          "As Demandas são registros de produtos ou serviços necessários. A liberação dos recursos está sujeita à aprovação dos contribuidores.",
       },
       {
         header: parseInt(approversCount),
-        meta: "Number of Approvers",
+        meta: "Doadores",
         description:
-          "Number of people who have already donated to this campaign",
+          "Pessoas que já doaram para esse projeto e podem aprovar as Demandas",
       },
       {
         header: web3.utils.fromWei(balance, "ether"),
-        meta: "Campaign Balance (ETH)",
+        meta: "Saldo (ETH)",
         description:
-          "The balance is how much money this campaign has left to spend.",
+          "O Saldo é a quantidade de fundos disponíveis para pagar as demandas.",
       },
     ];
 
