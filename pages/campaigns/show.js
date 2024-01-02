@@ -55,7 +55,7 @@ class CampaignShow extends Component {
       },
       {
         header: parseInt(approversCount),
-        meta: "Doadores",
+        meta: "Doadores / Aprovadores",
         description:
           "Pessoas que já doaram para esse projeto e podem aprovar as Demandas",
       },
