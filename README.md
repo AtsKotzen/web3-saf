@@ -1,3 +1,3 @@
 ﻿# dapp-crowdfund-projects
 
-Node v16.17.0
+Node v18.16.0
