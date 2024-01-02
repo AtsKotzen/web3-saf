@@ -19,6 +19,7 @@ class CampaignShow extends Component {
       requestsCount: summary[2],
       approversCount: summary[3],
       manager: summary[4],
+      campaignName: summary[5]
     };
   }
 
@@ -29,7 +30,7 @@ class CampaignShow extends Component {
       minimumContribution,
       requestsCount,
       approversCount,
-    } = this.props;
+      } = this.props;
 
     const items = [
       {
@@ -71,7 +72,7 @@ class CampaignShow extends Component {
   render() {
     return (
       <Layout>
-        <h3>Campaign Details</h3>
+        <h3>{this.props.campaignName} Details</h3>
         <Grid>
           <Grid.Row>
             <Grid.Column width={10}>{this.renderCards()}</Grid.Column>

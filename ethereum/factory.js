@@ -8,6 +8,11 @@ const abi = [
 				"internalType": "uint256",
 				"name": "minimum",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
 			}
 		],
 		"name": "createCampaign",
@@ -51,7 +56,7 @@ const abi = [
 
 const instance = new web3.eth.Contract(
   abi,
-  '0x6476c43F0cF840Eac0ED0dA162946c7D307c82bD'
+  '0x862973b872CAc286e555D3e59f21DCb21702aC30'
 );
 
 export default instance;
