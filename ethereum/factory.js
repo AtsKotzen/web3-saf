@@ -54,6 +54,8 @@ const abi = [
 	}
 ];
 
+
+
 const instance = new web3.eth.Contract(
   abi,
   '0x862973b872CAc286e555D3e59f21DCb21702aC30'

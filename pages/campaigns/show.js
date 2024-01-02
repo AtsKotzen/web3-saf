@@ -10,8 +10,8 @@ class CampaignShow extends Component {
   static async getInitialProps(props) {
     const campaign = Campaign(props.query.address);
 
-    const summary = await campaign.methods.getSummary().call();
-
+    const summary = await campaign.methods.getSummary().call();    
+    
     return {
       address: props.query.address,
       minimumContribution: summary[0],
@@ -30,12 +30,13 @@ class CampaignShow extends Component {
       minimumContribution,
       requestsCount,
       approversCount,
+      campaignName,      
       } = this.props;
 
-    const items = [
+    const items = [      
       {
-        header: manager,
-        meta: "Address of Manager",
+        header: "Manager address",
+        meta: manager,
         description:
           "The manager created this campaign and can create requests to withdraw money",
         style: { overflowWrap: "break-word" },
@@ -72,7 +73,7 @@ class CampaignShow extends Component {
   render() {
     return (
       <Layout>
-        <h3>{this.props.campaignName} Details</h3>
+        <h3>{this.props.campaignName}</h3>
         <Grid>
           <Grid.Row>
             <Grid.Column width={10}>{this.renderCards()}</Grid.Column>
@@ -85,7 +86,7 @@ class CampaignShow extends Component {
             <Grid.Column>
               <Link route={`/campaigns/${this.props.address}/requests`}>
                 <a>
-                  <Button primary>View Requests</Button>
+                  <Button primary>Ver Demandas</Button>
                 </a>
               </Link>
             </Grid.Column>
