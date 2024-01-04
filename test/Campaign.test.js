@@ -18,7 +18,7 @@ beforeEach(async () => {
     .deploy({ data: compiledFactory.bytecode })
     .send({ from: accounts[0], gas: "1000000" });
 
-  await factory.methods.createCampaign("100").send({
+  await factory.methods.createCampaign("100", "Test Campaign", "Test Manager").send({
     from: accounts[0],
     gas: "1000000",
   });
@@ -43,7 +43,7 @@ describe("Campaigns", () => {
 
   it("allows people to contribute money and marks them as approvers", async () => {
     await campaign.methods.contribute().send({
-      value: "200",
+      value: web3.utils.toWei("2", "ether"),
       from: accounts[1],
     });
     const isContributor = await campaign.methods.approvers(accounts[1]).call();
@@ -53,7 +53,7 @@ describe("Campaigns", () => {
   it("requires a minimum contribution", async () => {
     try {
       await campaign.methods.contribute().send({
-        value: "5",
+        value: web3.utils.toWei("0.5", "ether"),
         from: accounts[1],
       });
       assert(false);
@@ -64,7 +64,7 @@ describe("Campaigns", () => {
 
   it("allows a manager to make a payment request", async () => {
     await campaign.methods
-      .createRequest("Buy batteries", "100", accounts[1])
+      .createRequest("Buy batteries", web3.utils.toWei("1", "ether"), accounts[1])
       .send({
         from: accounts[0],
         gas: "1000000",
