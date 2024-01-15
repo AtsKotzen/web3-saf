@@ -69,7 +69,7 @@ class RequestNew extends Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Recebedor</label>
+            <label>Fornecedor</label>
             <Input
               value={this.state.recipient}
               placeholder="Cole aqui o endereço da carteira"

@@ -263,7 +263,7 @@ const abi = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
+];
 
 const campaign = (address) => {
   return new web3.eth.Contract(abi, address);  

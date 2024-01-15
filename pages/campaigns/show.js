@@ -43,7 +43,7 @@ class CampaignShow extends Component {
       },
       {
         header: web3.utils.fromWei(minimumContribution, "ether"),
-        meta: "Valor mínimo (ETH)",
+        meta: "Financiamento mínimo (ETH)",
         description:
           "Valor mínimo de contribuição para se tornar um aprovador.",
       },
@@ -55,7 +55,7 @@ class CampaignShow extends Component {
       },
       {
         header: parseInt(approversCount),
-        meta: "Doadores / Aprovadores",
+        meta: "Financiadores / Aprovadores",
         description:
           "Pessoas que já doaram para esse projeto e podem aprovar as Demandas",
       },
