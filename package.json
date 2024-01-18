@@ -1,5 +1,5 @@
 {
-  "name": "campaigns",
+  "name": "web3-saf",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "mocha",
     "dev": "node server.js"
   },
-  "author": "Athus Linhares Oliveira",
+  "author": "GrowEcosystems | AgroforestDAO | Athus Oliveira",
   "license": "ISC",
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.15",
